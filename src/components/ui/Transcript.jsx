@@ -42,19 +42,7 @@ const Transcript = () => {
     updateTranscript();
   }, [results]);
 
-  const handleClearTranscript = () => {
-    setIsClearing(true);
-  };
-
-  const confirmClearTranscript = () => {
-    const clear = window.confirm('Are you sure you want to clear the transcript?');
-    if (clear) {
-      setTranscript('');
-      setIsClearing(false);
-    } else {
-      setIsClearing(false);
-    }
-  };
+ 
 
   const handleCopyTranscript = () => {
     navigator.clipboard.writeText(transcript)
@@ -85,11 +73,11 @@ const Transcript = () => {
         Copy Transcript
       </button>
      </div>
-      <button className='mt-4 z-10  bottom-2 right-2 fixed font-space-grotesk hover:bg-red-600 bg-red-500 font-bold  px-6 py-2 text-lg rounded-full border-2 border-red-800 hover:scale-110 cursor-pointer transition-all ease duration-300' onClick={handleClearTranscript}>
-        Clear Transcript
+      <button className='mt-4 z-10  bottom-2 right-2 fixed font-space-grotesk hover:bg-red-600 bg-red-500 font-bold  px-6 py-2 text-lg rounded-full border-2 border-red-800 hover:scale-110 cursor-pointer transition-all ease duration-300' >
+        <a href="/">Clear Transcript</a>
       </button>
       
-      {isClearing && confirmClearTranscript()}
+      
     </div>
   );
 };
